@@ -1,0 +1,37 @@
+<h1>Profile Editor</h1>
+<form [formGroup]="profileForm" (ngSubmit)="submit()">
+  <label for="firstName">First name: </label>
+  <input id="firstName" formControlName="firstName" type="text"/>
+  <label for="lastName">Last name: </label>
+  <input id="lastName" formControlName="lastName" type="text"/>
+
+  <div formGroupName="address">
+    <h3>Address</h3>
+    <label for="street">Street: </label>
+    <input id="street" formControlName="street" type="text"/>
+    <label for="city">City: </label>
+    <input id="city" formControlName="city" type="text"/>
+    <label for="state">State: </label>
+    <input id="state" formControlName="state" type="text"/>
+    <label for="zip">Zip: </label>
+    <input id="zip" formControlName="zip" type="text"/>
+    <button (click)="updateProfile()">Update Profile</button>
+  </div>
+
+  <div formArrayName="aliases">
+    <h3>Aliases</h3>
+
+    <div *ngFor="let alias of aliases.controls; let i = index">
+      <label for="alias-{{ i }}">Alias {{ i }}:</label>
+      <input id="alias-{{ i }}" [formControlName]="i" type="text"/>
+    </div>
+    <button (click)="addAlias()">Add alias</button>
+  </div>
+
+  <button [disabled]="!profileForm.valid" type="submit">Submit</button>
+
+  <div>
+    <p>Form value: {{profileForm.value | json}}</p>
+    <p>Form status: {{profileForm.status}}</p>
+  </div>
+</form>
