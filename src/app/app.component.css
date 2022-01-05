@@ -1,5 +1,15 @@
-fieldset {
-  border: none;
-  display: flex;
-  flex-direction: column;
+nav {
+  padding: 40px 20px 30px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 30px;
+}
+
+a {
+  background-color: cadetblue;
+  width: 200px;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px;
 }

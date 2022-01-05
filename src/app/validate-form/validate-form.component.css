@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+form > * {
+  width: fit-content;
+}
+
+form label span {
+  display: inline-block;
+  width: 100px;
+}
